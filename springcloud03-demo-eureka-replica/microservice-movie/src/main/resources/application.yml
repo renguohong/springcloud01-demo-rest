@@ -1,0 +1,19 @@
+server:
+  port: 8001
+#声明电影微服务
+spring:
+  application:
+    name: microservice-movie
+eureka:
+  client:
+    #电影购票微服务模块向eurekas服务器注册
+    register-with-eureka: true
+    #电影狗牌你微服务向eurekas服务器索要信息
+    fetch-registry: true
+   #电影购片微服务的url
+    service-url:
+      defaultZone: http://192.168.1.112:8888/eureka,http://192.168.117.129:8888/eureka
+
+  #使用ip地址
+  instance:
+    prefer-ip-address: true

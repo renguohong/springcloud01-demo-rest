@@ -1,0 +1,6 @@
+server:
+  port: 8001
+#声明电影微服务
+spring:
+  application:
+    name: microservice-movie

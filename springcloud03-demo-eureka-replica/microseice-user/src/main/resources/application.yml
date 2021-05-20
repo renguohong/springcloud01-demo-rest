@@ -1,0 +1,33 @@
+#声明微服务的端口
+server:
+  port: 9001
+
+#声明微服务的名称
+spring:
+  application:
+    name: microservice-user
+#声明数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.117.39:3306/jsd_20129?useSSL=false&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+#声明jpd实施正向工程
+  jpa:
+    show-sql: true    #显示sql语句
+    generate-ddl: true    #生成建表语句
+    database: mysql        #底层数据库是mybatis数据库
+
+#配置eureka服务器的客户端（microservice-user）
+eureka:
+  client:
+    register-with-eureka: true   #向eureka服务器中注册
+    fetch-registry: true          #向eureka服务器索要信息
+    #user微服务的url（用户微服务注册到eureka服务器后，访问的url）
+    service-url:
+      defaultZone: http://192.168.1.118:8888/eureka,http://192.168.117.129:8888/ereka
+
+#作为eureka服务器的实例，注册时使用ip地址作为url
+#  instance:
+#    prefer-ip-address: true
